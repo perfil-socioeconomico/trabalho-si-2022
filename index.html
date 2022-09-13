@@ -20,18 +20,16 @@
         <canvas id="myChart"></canvas>
     </div>
 
-    <script>
-        const labels = [
-          'Gabs :)',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-        ];
-      
+    <script>      
         const data = {
-          labels: labels,
+          labels: [
+            'Gabs :)',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+          ],
           datasets: [{
             label: 'My First dataset',
             backgroundColor: 'rgb(255, 99, 132)',
@@ -45,10 +43,8 @@
           data: data,
           options: {}
         };
-      </script>
 
-    <script>
         const myChart = new Chart(document.getElementById('myChart'), config);
-    </script>
+      </script>
 </body>
 </html>
