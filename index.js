@@ -78,8 +78,44 @@ const fixData = (result) => {
 
             //Substituição das propriedades no objeto
             propertyTemp = propertyTemp.replaceAll(".", "x");
-            element[`${propertyTemp}`] = element[`${property}`];
+            element[`q${propertyTemp}`] = element[`${property}`];
             delete element[`${property}`];
         })
     })
+    dataToGraph(result);
 }
+
+const dataToGraph = (data) => {
+    const results = [];
+    const findByName = (name) => results.findIndex(i => i.name === name);
+    
+    Object.getOwnPropertyNames(data[0]).forEach(j => {
+        results.push({name:j, labels: [], results:[]});
+    })
+
+    const haveLabel = (name) => {
+        let have = false;
+        results[0].labels.forEach(i => {
+            if(i === name) have = true;
+        })
+        return have;
+    }
+
+    const findLabelByName = (name) => {
+        for(let i = 0; i < results[0].labels.length; i++){
+            if(results[0].labels[i] === name) return i;
+        }
+    }
+    
+    data.forEach(i => {
+        if(!haveLabel(i.q1)){
+            results[0].labels.push(i.q1);
+            results[0].results.push(1);
+        } else {
+            results[0].results[findLabelByName(i.q1)] += 1
+        }
+    })
+    
+    console.log(results);
+}
+
