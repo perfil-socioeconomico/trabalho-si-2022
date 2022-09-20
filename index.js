@@ -86,36 +86,57 @@ const fixData = (result) => {
 }
 
 const dataToGraph = (data) => {
-    const results = [];
-    const findByName = (name) => results.findIndex(i => i.name === name);
+    let chartData = [];
     
+    
+    const findLabelByName = (object, name) => {
+        for(let i = 0; i < object.labels.length; i++){
+            if(object.labels[i] === name) return i;
+        }
+    }
+
     Object.getOwnPropertyNames(data[0]).forEach(j => {
-        results.push({name:j, labels: [], results:[]});
+        chartData.push({name:j, labels: [], datas:[]});
     })
 
-    const haveLabel = (name) => {
-        let have = false;
-        results[0].labels.forEach(i => {
-            if(i === name) have = true;
+    chartData.shift();
+    
+    const haveLabel = (object, name) => {
+        let result = false;
+        object.labels.forEach(i => {
+            if(i === name){
+                result = true;
+            }
+        });
+        return result;
+    }
+
+    chartData.forEach(i => {
+        data.forEach(j => {
+            if(!haveLabel(i, j[`${i.name}`])){
+                i.labels.push(j[`${i.name}`]);
+                i.datas.push(1);
+            } else {
+                i.datas[findLabelByName(i, j[`${i.name}`])] += 1;
+            }
         })
-        return have;
-    }
+    });
 
-    const findLabelByName = (name) => {
-        for(let i = 0; i < results[0].labels.length; i++){
-            if(results[0].labels[i] === name) return i;
-        }
-    }
     
-    data.forEach(i => {
-        if(!haveLabel(i.q1)){
-            results[0].labels.push(i.q1);
-            results[0].results.push(1);
-        } else {
-            results[0].results[findLabelByName(i.q1)] += 1
-        }
+    //const findPropIdByName = (name) => chartData.findIndex(i => i.name === name);
+
+    /*
+    Object.getOwnPropertyNames(data[0]).forEach(i => {
+        data.forEach(j => {
+            if(!haveLabel(i)){
+                chartData[0].labels.push(i);
+                chartData[0].chartData.push(1);
+            } else {
+                chartData[0].chartData[findLabelByName(i.q1)] += 1
+            }
+        }) 
     })
-    
-    console.log(results);
+    */
+    console.log(chartData);
 }
 
