@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    <script src="static.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
         <canvas id="myChart"></canvas>
     </div>
 
-    <script>      
+    <script>
         const data = {
           labels: [
             'Gabs :)',
@@ -32,14 +33,13 @@
           ],
           datasets: [{
             label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: colors,
             data: [100, 10, 5, 2, 20, 30, 45],
           }]
         };
       
         const config = {
-          type: 'line',
+          type: 'doughnut',
           data: data,
           options: {}
         };

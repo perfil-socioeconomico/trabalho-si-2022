@@ -1,3 +1,5 @@
+let chartData = []
+
 const upload = () => {
     //Recebe o arquivo do input 'file_upload'
     let files = document.getElementById('file_upload').files;
@@ -86,8 +88,7 @@ const fixData = (result) => {
 }
 
 const dataToGraph = (data) => {
-    let chartData = [];
-    
+    chartData = [];
     
     const findLabelByName = (object, name) => {
         for(let i = 0; i < object.labels.length; i++){
@@ -137,6 +138,7 @@ const dataToGraph = (data) => {
         }) 
     })
     */
+
     console.log(chartData);
 }
 
