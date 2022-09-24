@@ -16,35 +16,12 @@
 <body>
     <input type="file" id="file_upload" />
     <button onclick="upload()">Upload</button>
-
-    <div>
-        <canvas id="myChart"></canvas>
-    </div>
-
-    <script>
-        const data = {
-          labels: [
-            'Gabs :)',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-          ],
-          datasets: [{
-            label: 'My First dataset',
-            backgroundColor: colors,
-            data: [100, 10, 5, 2, 20, 30, 45],
-          }]
-        };
-      
-        const config = {
-          type: 'pie',
-          data: data,
-          options: {}
-        };
-
-        const myChart = new Chart(document.getElementById('myChart'), config);
-      </script>
+<div id="ResultadoGrafico">
+  <div>
+  <canvas id="myChart"></canvas>
+ </div>
+</div>
+    
+      <script src="gerar_grafico.js"></script>
 </body>
 </html>

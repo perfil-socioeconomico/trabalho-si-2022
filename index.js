@@ -140,5 +140,20 @@ const dataToGraph = (data) => {
     */
 
     console.log(chartData);
+    let data2   = {
+        labels: chartData[1].labels,
+        datasets: [{
+          label: 'My First dataset',
+          backgroundColor: colors,
+          data: chartData[1].datas,
+        }]
+      };
+      let config = {
+        type: 'pie',
+        data: data2,
+        options: {}
+      };
+      let x = new Chart(document.getElementById(`myChart`), config);
+    gerargraficos()
 }
 
