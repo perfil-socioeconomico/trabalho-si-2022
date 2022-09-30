@@ -87,23 +87,7 @@ const fixData = (result) => {
     dataToGraph(result);
 }
 
-const findLabelByName = (object, name) => {
-    for(let i = 0; i < object.labels.length; i++){
-        if(object.labels[i] === name) return i;
-    }
-}
 
-const splitFields = (fields) => {
-    for(let i = 0; i < fields.length; i++) {
-        fields[i] = fields[i].split(";");
-    }
-    let result = []
-    fields.forEach((i) => {
-        result = result.concat(i)
-    })
-    fields = result;
-    console.log(fields);
-}
 
 const dataToGraph = (data) => {
     chartData = [];
@@ -157,6 +141,6 @@ const dataToGraph = (data) => {
     */
 
     console.log(chartData);
-    gerargraficos()
+    gerargraficos(["q4", "q3", "q2", "q1"])
 }
 

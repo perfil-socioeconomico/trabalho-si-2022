@@ -10,3 +10,21 @@ const colors = [
 ]
 
 const charts = []
+
+const findLabelByName = (object, name) => {
+    for(let i = 0; i < object.labels.length; i++){
+        if(object.labels[i] === name) return i;
+    }
+}
+
+const splitFields = (fields) => {
+    for(let i = 0; i < fields.length; i++) {
+        fields[i] = fields[i].split(";");
+    }
+    let result = []
+    fields.forEach((i) => {
+        result = result.concat(i)
+    })
+    fields = result;
+    console.log(fields);
+}
