@@ -1,4 +1,4 @@
-colors = [
+const colors = [
     "#FF6384", 
     "#36A2EB",
     "#FFCD56",
@@ -8,3 +8,5 @@ colors = [
     "#63FF80",
     "#FFA163"
 ]
+
+const charts = []

@@ -87,14 +87,26 @@ const fixData = (result) => {
     dataToGraph(result);
 }
 
+const findLabelByName = (object, name) => {
+    for(let i = 0; i < object.labels.length; i++){
+        if(object.labels[i] === name) return i;
+    }
+}
+
+const splitFields = (fields) => {
+    for(let i = 0; i < fields.length; i++) {
+        fields[i] = fields[i].split(";");
+    }
+    let result = []
+    fields.forEach((i) => {
+        result = result.concat(i)
+    })
+    fields = result;
+    console.log(fields);
+}
+
 const dataToGraph = (data) => {
     chartData = [];
-    
-    const findLabelByName = (object, name) => {
-        for(let i = 0; i < object.labels.length; i++){
-            if(object.labels[i] === name) return i;
-        }
-    }
 
     Object.getOwnPropertyNames(data[0]).forEach(j => {
         chartData.push({name:j, labels: [], datas:[]});
@@ -113,6 +125,10 @@ const dataToGraph = (data) => {
     }
 
     chartData.forEach(i => {
+        if(i.name === "q15x1"){
+            splitFields(i.labels)
+            console.log(i.labels);
+        }
         data.forEach(j => {
             if(!haveLabel(i, j[`${i.name}`])){
                 i.labels.push(j[`${i.name}`]);
@@ -121,6 +137,7 @@ const dataToGraph = (data) => {
                 i.datas[findLabelByName(i, j[`${i.name}`])] += 1;
             }
         })
+        
     });
 
     
@@ -140,20 +157,6 @@ const dataToGraph = (data) => {
     */
 
     console.log(chartData);
-    let data2   = {
-        labels: chartData[1].labels,
-        datasets: [{
-          label: 'My First dataset',
-          backgroundColor: colors,
-          data: chartData[1].datas,
-        }]
-      };
-      let config = {
-        type: 'pie',
-        data: data2,
-        options: {}
-      };
-      let x = new Chart(document.getElementById(`myChart`), config);
     gerargraficos()
 }
 
