@@ -1,3 +1,5 @@
+let chartData = JSON.parse(localStorage.getItem("chartData"));
+
 const gerargraficos= (labels) => {
     const ids = []
     labels = labels.sort();
@@ -15,10 +17,10 @@ const gerargraficos= (labels) => {
       document.querySelector("#ResultadoGrafico").innerHTML+=
       `<div><h2>${chartData[i].name}</h2><div><canvas id="Chart${i}"></canvas></div></div>`
     }*/
-  mostrarGráficos(ids)
+  mostrarGraficos(ids)
 }
 
-const mostrarGráficos = (ids) => {
+const mostrarGraficos = (ids) => {
   for(let i=0; i<ids.length; i++){
     let data = {
       labels: chartData[ids[i]].labels,

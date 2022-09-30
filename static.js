@@ -28,3 +28,4 @@ const splitFields = (fields) => {
     fields = result;
     console.log(fields);
 }
+

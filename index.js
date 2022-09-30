@@ -1,5 +1,3 @@
-let chartData = []
-
 const upload = () => {
     //Recebe o arquivo do input 'file_upload'
     let files = document.getElementById('file_upload').files;
@@ -139,8 +137,6 @@ const dataToGraph = (data) => {
         }) 
     })
     */
-
-    console.log(chartData);
-    gerargraficos(["q4", "q3", "q2", "q1"])
+    localStorage.setItem("chartData", JSON.stringify(chartData));
 }
 
