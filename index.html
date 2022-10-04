@@ -8,43 +8,27 @@
 
     <link rel="stylesheet" href="index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
     <script src="index.js"></script>
 </head>
 <body>
-    <input type="file" id="file_upload" />
-    <button onclick="upload()">Upload</button>
 
-    <div>
-        <canvas id="myChart"></canvas>
+
+  
+    <div class="container">
+      <h1 id="start">Upload your documents</h1>
+      <h2 id="desc">xls format</h2>
+      <label>select</label>
+      <input type="file" id="file_upload" />
+      <button onclick="upload()">Upload</button>
     </div>
 
     <script>      
-        const data = {
-          labels: [
-            'Gabs :)',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-          ],
-          datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [100, 10, 5, 2, 20, 30, 45],
-          }]
-        };
-      
-        const config = {
-          type: 'line',
-          data: data,
-          options: {}
-        };
-
-        const myChart = new Chart(document.getElementById('myChart'), config);
-      </script>
+        
+    </script>
 </body>
 </html>
