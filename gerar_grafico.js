@@ -7,7 +7,7 @@ const gerargraficos= (labels) => {
       labels.forEach(label => {
         if(chartData[i].name === label) {
           document.querySelector("#ResultadoGrafico").innerHTML+=
-          `<div><h2>${chartData[i].name}</h2><div><canvas id="Chart${chartData[i].name}"></canvas></div></div>`
+          `<div class="graphDiv"><h2>${chartData[i].name}</h2><div><canvas id="Chart${chartData[i].name}"></canvas></div></div>`
           ids.push(i)
         }
       })

@@ -1,0 +1,101 @@
+*{
+	box-sizing: border-box;
+}
+:root {
+	--darkestDark: #111111;
+	--softDark: #1F1F1F;
+	--clearDark: #343434;
+	--baseColor: #9445FF;
+}
+body, h2 {
+	margin:  0; 
+	padding: 0;
+}
+body{
+	background: var(--softDark);
+	font-size:18px;
+}
+#ResultadoGrafico{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.graphDiv{
+	width: 30%;
+	padding: 20px;
+	background-color: var(--clearDark);
+	color: white;
+	border-radius: 10px;
+}
+
+.header{
+	width: 100%;
+	background-color: var(--darkestDark);
+	text-align: right;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.voltar_button{
+	background-color:rgb(119, 111, 111);
+	color: #000;
+	width: 150px;
+	border-radius: 15px;
+	user-select: none;
+	cursor: pointer;
+	padding: 5px;
+	text-align: center;
+	font-size:large;
+}
+
+.container{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.nave {
+	width: 20%;
+	height: 100vh;
+	background-color: var(--darkestDark);
+	text-align: center;
+	color: #fff;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+.graficos{
+	width: 80%;
+	height: 90vh;
+}
+img{
+	width: 400px;
+	height: 400px;
+}
+
+@media screen and (max-width: 1000px){
+	.header{
+		text-align:center ;
+	}	
+	.container{
+		display: block ;
+		padding: 0%;
+	}
+	.nave{
+		width: 100%;
+		padding: 0;
+		font-size: 20px;
+	}
+	.graficos{
+		width: 100%;
+		height: 80%;
+
+		padding: 0%;
+	}
+	.grafico_atual{
+		text-align: center;
+	}
+	img{
+		width: 280px;
+		height: 280px;
+	}
+}
