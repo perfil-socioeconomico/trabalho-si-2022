@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="results.css">
-    <title>site_roland</title>
-
+    <title>Graficos Fatec</title>
+    
     <!-- ChartJs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    <link rel="stylesheet" type="text/css" href="results.css">
+
     <!-- Dados estáticos -->
-    <script src="static.js"></script>
+    <script src="../static.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="nave">
             <h2>Título</h2>
-            <a>Fatec</a>
+            <a class="active" href="fatec.html">Fatec</a>
             <a href="bens.html">Bens</a>
-            <a>Escolaridade</a>
-            <a>Pessoal</a>
+            <a href="escolaridade.html">Escolaridade</a>
+            <a href="pessoal.html"> Pessoal</a>
         </div>
         <div></div>
         <div class="graficos">
@@ -34,14 +35,13 @@
             <div class="grafico_atual">
                 <!-- Div pra receber os gráficos -->
                 <div id="ResultadoGrafico"></div>
-
-
             </div>
         </div>
     </div>
 
     <!-- Importação do JS -->
-    <script src="gerar_grafico.js"></script>
-    <script>gerargraficos(["q15x1", "q4"])</script>
+    <script src="../gerar_grafico.js"></script>
+    <!-- Chamada função de gerar gráficos -->
+    <script>gerargraficos(["q1", "q2","q35", "q36","q37", "q38","q39"])</script>
 </body>
 </html>

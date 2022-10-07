@@ -36,6 +36,10 @@ const excelFileToJSON = (file) => {
             let workbook = XLSX.read(data, {
                 type : 'binary'
             });
+            console.log(workbook);
+            workbook.Strings[22].h = "17-1";
+            workbook.Strings[22].r = "17-1";
+            workbook.Strings[22].t = "17-1";
             let result = {};
 
             //Para cada nome de coluna, uma nova propriedade é adicionada ao objeto result
