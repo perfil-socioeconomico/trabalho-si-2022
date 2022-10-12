@@ -6,18 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script src="static.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
-    <input type="file" id="file_upload" />
-    <button onclick="upload()">Upload</button>
-<div id="ResultadoGrafico">
-</div>
+  <div class="container">
+    <h1 id="start">Upload your documents</h1>
+    <h2 id="desc">xls format</h2>
+    <label for="file_upload">select</label>
+    <input type="file" name="file" id="file_upload" />
+    <button onclick="upload()">Upload</button>     
+  </div>
+  <div div id="ResultadoGrafico">
+  </div>
       <script src="gerar_grafico.js"></script>
-</body>
-</html>
+</head>
