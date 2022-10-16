@@ -36,10 +36,8 @@ const excelFileToJSON = (file) => {
             let workbook = XLSX.read(data, {
                 type : 'binary'
             });
-            console.log(workbook);
-            workbook.Strings[22].h = "17-1";
-            workbook.Strings[22].r = "17-1";
-            workbook.Strings[22].t = "17-1";
+
+            fixWorkbook(workbook)
             let result = {};
 
             //Para cada nome de coluna, uma nova propriedade é adicionada ao objeto result
@@ -87,6 +85,7 @@ const fixData = (result) => {
         })
     })
     dataToGraph(result);
+    
 }
 
 
@@ -142,5 +141,175 @@ const dataToGraph = (data) => {
     })
     */
     localStorage.setItem("chartData", JSON.stringify(chartData));
+    window.location.href = "pages/fatec.html";
 }
 
+const fixWorkbook = (workbook) => {
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`W1`] = {
+        h: "17-1 Automóvel",
+        r: "<t>17-1 Automóvel</t>",
+        t: "s",
+        v: "17-1 Automóvel",
+        w: "17-1 Automóvel"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`Y1`] = {
+        h: "17-2 MaquinaDeLavar",
+        r: "<t>17-2 MaquinaDeLavar</t>",
+        t: "s",
+        v: "17-2 MaquinaDeLavar",
+        w: "17-2 MaquinaDeLavar"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`Z1`] = {
+        h: "17-3 Geladeira",
+        r: "<t>17-3 Geladeira</t>",
+        t: "s",
+        v: "17-3 Geladeira",
+        w: "17-3 Geladeira"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`AA1`] = {
+        h: "17-4 Celular",
+        r: "<t>17-4 Celular</t>",
+        t: "s",
+        v: "17-4 Celular",
+        w: "17-4 Celular"
+    }
+    
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`AB1`] = {
+        h: "17-5 Smartphone",
+        r: "<t>17-5 Smartphone</t>",
+        t: "s",
+        v: "17-5 Smartphone",
+        w: "17-5 Smartphone"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`AC1`] = {
+        h: "17-6 Desktop",
+        r: "<t>17-6 Desktop</t>",
+        t: "s",
+        v: "17-6 Desktop",
+        w: "17-6 Desktop"
+    }
+    
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`AD1`] = {
+        h: "17-7 Desktop",
+        r: "<t>17-7 Desktop</t>",
+        t: "s",
+        v: "17-7 Desktop",
+        w: "17-7 Desktop"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`AF1`] = {
+        h: "18-1 Internet",
+        r: "<t>18-1 Internet</t>",
+        t: "s",
+        v: "18-1 Internet",
+        w: "18-1 Internet"
+    }
+    
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`AG1`] = {
+        h: "18-2 TV",
+        r: "<t>18-2 TV</t>",
+        t: "s",
+        v: "18-2 TV",
+        w: "18-2 TV"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`AH1`] = {
+        h: "18-3 empregada",
+        r: "<t>18-3 empregada</t>",
+        t: "s",
+        v: "18-3 empregada",
+        w: "18-3 empregada"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BE1`] = {
+        h: "25-1 linux",
+        r: "<t>25-2 linux</t>",
+        t: "s",
+        v: "25-1 linux",
+        w: "25-1 linux"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BF1`] = {
+        h: "25-2 EditorDeTexto",
+        r: "<t>25-2 EditorDeTexto</t>",
+        t: "s",
+        v: "25-2 EditorDeTexto",
+        w: "25-2 EditorDeTexto"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BG1`] = {
+        h: "25-3 Excel",
+        r: "<t>25-3 Excel</t>",
+        t: "s",
+        v: "25-3 Excel",
+        w: "25-3 Excel"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BH1`] = {
+        h: "25-4 Powerpoint",
+        r: "<t>25-4 Powerpoint</t>",
+        t: "s",
+        v: "25-4 Powerpoint",
+        w: "25-4 Powerpoint"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BI1`] = {
+        h: "25-5 SGE",
+        r: "<t>25-5 SGE</t>",
+        t: "s",
+        v: "25-5 SGE",
+        w: "25-5 SGE"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BN1`] = {
+        h: "27-1 internet",
+        r: "<t>27-1 internet</t>",
+        t: "s",
+        v: "27-1 internet",
+        w: "27-1 internet"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BO1`] = {
+        h: "27-2 revistas",
+        r: "<t>27-2 revistas</t>",
+        t: "s",
+        v: "27-2 revistas",
+        w: "27-2 revistas"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BP1`] = {
+        h: "27-3 jornais",
+        r: "<t>27-3 jornais</t>",
+        t: "s",
+        v: "27-3 jornais",
+        w: "27-3 jornais"
+    }
+    
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BQ1`] = {
+        h: "27-4 radio",
+        r: "<t>27-4 radio</t>",
+        t: "s",
+        v: "27-4 radio",
+        w: "27-4 radio"
+    }
+
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BR1`] = {
+        h: "27-5 redes",
+        r: "<t>27-5 redes</t>",
+        t: "s",
+        v: "27-5 redes",
+        w: "27-5 redes"
+    }
+    
+    workbook.Sheets[`QUESTIONÁRIO SOCIOECONÔMICO`][`BS1`] = {
+        h: "27-6 conversas",
+        r: "<t>27-6 conversas</t>",
+        t: "s",
+        v: "27-6 conversas",
+        w: "27-6 conversas"
+    }
+}

@@ -1,13 +1,13 @@
 let chartData = JSON.parse(localStorage.getItem("chartData"));
 
-const gerargraficos= (labels) => {
+const gerargraficos = (labels) => {
     const ids = []
     labels = labels.sort();
     for(let i = 0; i < chartData.length; i++)
       labels.forEach(label => {
-        if(chartData[i].name === label) {
+        if(chartData[i].name === label.property) {
           document.querySelector("#ResultadoGrafico").innerHTML+=
-          `<div class="graphDiv"><h2>${chartData[i].name}</h2><div><canvas id="Chart${chartData[i].name}"></canvas></div></div>`
+          `<div class="graphDiv"><h2>${label.name}</h2><div><canvas id="Chart${chartData[i].name}"></canvas></div></div>`
           ids.push(i)
         }
       })
@@ -29,12 +29,12 @@ const mostrarGraficos = (ids) => {
         backgroundColor: colors,
         data: chartData[ids[i]].datas,
       }]
-    };
+    }
     let config = {
       type: 'pie',
       data: data,
       options: {}
-    };
+    }
 
     charts.push(new Chart(document.querySelector(`#Chart${chartData[ids[i]].name}`), config));
   }

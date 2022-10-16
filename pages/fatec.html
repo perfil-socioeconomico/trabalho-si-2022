@@ -27,9 +27,10 @@
         <div></div>
         <div class="graficos">
             <div class="header">
-                <a href="/index.html"><button class="voltar_button">
-                    Inicio
-                </button>
+                <a href="../index.html">
+                    <button class="voltar_button">
+                        Inicio
+                    </button>
                 </a>
             </div>
             <div class="grafico_atual">
@@ -41,7 +42,18 @@
 
     <!-- Importação do JS -->
     <script src="../gerar_grafico.js"></script>
+
     <!-- Chamada função de gerar gráficos -->
-    <script>gerargraficos(["q1", "q2","q35", "q36","q37", "q38","q39"])</script>
+    <script>
+        gerargraficos([
+                {name: "xd", property: "q1"}, 
+                {name: "xd", property: "q2"}, 
+                {name: "xd", property: "q35"}, 
+                {name: "xd", property: "q36"}, 
+                {name: "xd", property: "q37"}, 
+                {name: "xd", property: "q38"}, 
+                {name: "xd", property: "q39"}, 
+            ]);
+    </script>
 </body>
 </html>
