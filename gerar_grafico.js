@@ -33,7 +33,13 @@ const mostrarGraficos = (ids) => {
     let config = {
       type: 'pie',
       data: data,
-      options: {}
+      options: {
+        legend: {
+            labels: {
+                fontColor: "white"
+            }
+        }
+      }
     }
 
     charts.push(new Chart(document.querySelector(`#Chart${chartData[ids[i]].name}`), config));
