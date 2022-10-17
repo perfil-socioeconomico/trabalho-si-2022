@@ -34,12 +34,15 @@ const mostrarGraficos = (ids) => {
       type: 'pie',
       data: data,
       options: {
-        legend: {
-            labels: {
-                fontColor: "white"
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: 'white'
+                }
             }
         }
-      }
+    }
     }
 
     charts.push(new Chart(document.querySelector(`#Chart${chartData[ids[i]].name}`), config));

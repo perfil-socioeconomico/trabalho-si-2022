@@ -18,13 +18,16 @@ const findLabelByName = (object, name) => {
 }
 
 const splitFields = (fields) => {
-    for(let i = 0; i < fields.length; i++) {
-        fields[i] = fields[i].split(";");
-    }
+    fields.map(i => {
+        i.split(";")
+    })
+        //fields[i] = fields[i].split(";");
+        
+    
+    /*
     let result = []
     fields.forEach((i) => {
         result = result.concat(i)
     })
-    fields = result;
-    console.log(fields);
+    fields = result;*/
 }

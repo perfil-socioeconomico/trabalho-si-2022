@@ -110,9 +110,8 @@ const dataToGraph = (data) => {
     }
 
     chartData.forEach(i => {
-        if(i.name === "q15x1"){
+        if(i.name === "q38"){
             splitFields(i.labels)
-            console.log(i.labels);
         }
         data.forEach(j => {
             if(!haveLabel(i, j[`${i.name}`])){
@@ -141,7 +140,8 @@ const dataToGraph = (data) => {
     })
     */
     localStorage.setItem("chartData", JSON.stringify(chartData));
-    window.location.href = "pages/fatec.html";
+    console.log(chartData);
+    //window.location.href = "pages/fatec.html";
 }
 
 const fixWorkbook = (workbook) => {
