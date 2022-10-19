@@ -126,6 +126,22 @@ const dataToGraph = (data) => {
         splitFields(i.labels)
     }*/
 
+    const splitQuestion = (char) => {
+        let fields = splitFields(chartData[i].labels);
+
+        chartData[i].datas.length = fields.length;
+        chartData[i].datas.forEach(i => {i = 0})
+        for(let j = 0; j < chartData[i].labels.length; j++){
+            chartData[i].labels[j]
+            
+            for(let k = 0; k < fields.length; k++){
+                if(chartData[i].labels[j].includes(fields[k])){
+                    chartData[i].datas[k] += 1
+                }
+            }
+        }
+        chartData[i].labels = fields
+    }
 
     for(let i = 0; i < chartData.length; i++) {
         
