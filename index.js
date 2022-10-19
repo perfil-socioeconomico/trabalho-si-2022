@@ -110,35 +110,53 @@ const dataToGraph = (data) => {
     }
 
     chartData.forEach(i => {
-        if(i.name === "q38"){
-            splitFields(i.labels)
-        }
         data.forEach(j => {
+
             if(!haveLabel(i, j[`${i.name}`])){
                 i.labels.push(j[`${i.name}`]);
                 i.datas.push(1);
             } else {
                 i.datas[findLabelByName(i, j[`${i.name}`])] += 1;
             }
+
         })
-        
+
     });
+    /*if(i.name === "q38"){
+        splitFields(i.labels)
+    }*/
 
-    
-    //const findPropIdByName = (name) => chartData.findIndex(i => i.name === name);
 
-    /*
-    Object.getOwnPropertyNames(data[0]).forEach(i => {
-        data.forEach(j => {
-            if(!haveLabel(i)){
-                chartData[0].labels.push(i);
-                chartData[0].chartData.push(1);
-            } else {
-                chartData[0].chartData[findLabelByName(i.q1)] += 1
+    for(let i = 0; i < chartData.length; i++) {
+        
+        if(chartData[i].name === "q38"){
+            let fields = splitFields(chartData[i].labels);
+
+            chartData[i].datas.length = fields.length;
+            chartData[i].datas.forEach(i => {i = 0})
+            for(let j = 0; j < chartData[i].labels.length; j++){
+                chartData[i].labels[j]
+                
+                for(let k = 0; k < fields.length; k++){
+                    if(chartData[i].labels[j].includes(fields[k])){
+                        chartData[i].datas[k] += 1
+                    }
+                }
             }
-        }) 
-    })
-    */
+            chartData[i].labels = fields
+        }
+
+        if(chartData[i].name === "q42"){
+            let result = ""
+            chartData[i].labels.forEach(label => {
+                result += `${label} `
+            })
+            result = result.split(" ");
+            result = [...new Set(result)];
+            chartData[i].labels = result;
+        }
+    }
+
     localStorage.setItem("chartData", JSON.stringify(chartData));
     console.log(chartData);
     //window.location.href = "pages/fatec.html";
