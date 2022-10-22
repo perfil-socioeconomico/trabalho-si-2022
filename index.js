@@ -4,7 +4,7 @@ const upload = () => {
     
     //Verifica se algo foi enviado
     if(files.length==0){
-      alert("Please choose any file...");
+      alert("Por favor adcione um arquivo");
       return;
     }
 
@@ -17,8 +17,9 @@ const upload = () => {
     //Verifica se a extensão é válida
     if (extension == '.XLS' || extension == '.XLSX') {
         excelFileToJSON(files[0]);
+        window.location.href = "results.html"
     }else{
-        alert("Please select a valid excel file.");
+        alert("Por favor adicione um arquivo xlsx.");
     }
 }
 
