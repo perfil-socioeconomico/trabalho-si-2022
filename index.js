@@ -111,48 +111,50 @@ const dataToGraph = (data) => {
 
     chartData.forEach(i => {
         data.forEach(j => {
-
             if(!haveLabel(i, j[`${i.name}`])){
                 i.labels.push(j[`${i.name}`]);
                 i.datas.push(1);
-            } else {
+            } else 
                 i.datas[findLabelByName(i, j[`${i.name}`])] += 1;
-            }
 
         })
 
     });
-    /*if(i.name === "q38"){
-        splitFields(i.labels)
-    }*/
 
-    const splitQuestion = (char) => {
-        let fields = splitFields(chartData[i].labels);
+    const splitData = (fieldName) => {
+        for(let i = 0; i < chartData.length; i++) {
+            if(chartData[i].name === fieldName) {
+                let fields = splitFields(chartData[i].labels);
 
-        chartData[i].datas.length = fields.length;
-        chartData[i].datas.forEach(i => {i = 0})
-        for(let j = 0; j < chartData[i].labels.length; j++){
-            chartData[i].labels[j]
-            
-            for(let k = 0; k < fields.length; k++){
-                if(chartData[i].labels[j].includes(fields[k])){
-                    chartData[i].datas[k] += 1
+                chartData[i].datas.length = fields.length;
+                chartData[i].datas.forEach(i => {i = 0})
+                for(let j = 0; j < chartData[i].labels.length; j++){                
+                    for(let k = 0; k < fields.length; k++){
+                        if(chartData[i].labels[j].includes(fields[k])){
+                            chartData[i].datas[k] += 1
+                        }
+                    }
                 }
+                chartData[i].labels = fields
+                break;
             }
         }
-        chartData[i].labels = fields
+
     }
+    splitData("q38");
+    splitData("q15x1");
+    splitData("q31");
+    splitData("q37");
+    splitData("q34");
 
     for(let i = 0; i < chartData.length; i++) {
-        
+        /*
         if(chartData[i].name === "q38"){
             let fields = splitFields(chartData[i].labels);
 
             chartData[i].datas.length = fields.length;
             chartData[i].datas.forEach(i => {i = 0})
-            for(let j = 0; j < chartData[i].labels.length; j++){
-                chartData[i].labels[j]
-                
+            for(let j = 0; j < chartData[i].labels.length; j++){                
                 for(let k = 0; k < fields.length; k++){
                     if(chartData[i].labels[j].includes(fields[k])){
                         chartData[i].datas[k] += 1
@@ -160,7 +162,7 @@ const dataToGraph = (data) => {
                 }
             }
             chartData[i].labels = fields
-        }
+        }*/
 
         if(chartData[i].name === "q42"){
             let result = ""
@@ -170,12 +172,19 @@ const dataToGraph = (data) => {
             result = result.split(" ");
             result = [...new Set(result)];
             chartData[i].labels = result;
+            for(let j = 0; j < chartData[i].labels.length; j++) {
+                for(let k = 0; k < result.length; k++){
+                    if(chartData[i].labels[j].includes(result[k])){
+                        chartData[i].datas[k] += 1
+                    }
+                }
+            }
         }
     }
 
     localStorage.setItem("chartData", JSON.stringify(chartData));
     console.log(chartData);
-    //window.location.href = "pages/fatec.html";
+    window.location.href = "pages/fatec.html";
 }
 
 const fixWorkbook = (workbook) => {

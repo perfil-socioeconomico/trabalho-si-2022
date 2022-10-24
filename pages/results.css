@@ -39,8 +39,8 @@ body{
 }
 
 .voltar_button{
-	background-color:rgb(119, 111, 111);
-	color: #000;
+	background-color:var(--baseColor);
+	color: white;
 	width: 150px;
 	border-radius: 15px;
 	user-select: none;
@@ -72,10 +72,16 @@ body{
 .nave a {
 	text-decoration: none;
 	color:white;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 .graficos{
 	width: 80%;
 	height: 90vh;
+}
+.active {
+	background-color: var(--baseColor);
 }
 
 @media screen and (max-width: 1000px){
