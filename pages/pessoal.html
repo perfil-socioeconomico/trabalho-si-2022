@@ -34,8 +34,59 @@
                 </a>
             </div>
             <div class="grafico_atual">
+                <div style="display: flex; justify-content: center; width: 100%">
+                <div style="width: 90%; height: auto;" id="wordChart">
+                    <div style="border: 20px solid var(--clearDark); border-top-right-radius: 7px; border-top-left-radius: 7px; background-color: var(--clearDark); width: 100%; height: 600px; display: flex; justify-content: center;" id="vis">
+                        
+                    </div>
+                
+                    <form id="form">
+                        <p style="position: absolute; right: 0; top: 0" id="status"></p>
+                        <div style="text-align: center; display: none;">
+                        <div id="presets"></div>
+                        <div id="custom-area">
+                            <p><label for="text">Paste your text below!</label>
+                            <p>
+                            <textarea id="text">
+                                
+                            </textarea>
+                            <button id="go" type="submit">Go!</button>
+                        </div>
+                        </div>
+                
+                        <div style="display: none;">
+                        <p><label for="max">Number of xdxd:</label> <input type="number" value="250" min="1" id="max">
+                        <p><label for="per-line"><input type="checkbox" id="per-line"> One word per line</label>
+                        <p><label for="colours">Colours:</label> <a href="#" id="random-palette">get random palette</a>
+                        <p><label>Download:</label>
+                            <button id="download-svg">SVG</button>|
+                            <a id="download-png" href="#">PNG</a>
+                        </div>
+                
+                        <div style="float: left; display: none;" >
+                        <p><label>Spiral:</label>
+                            <label for="archimedean"><input type="radio" name="spiral" id="archimedean" value="archimedean" checked="checked"> Archimedean</label>
+                            <label for="rectangular"><input type="radio" name="spiral" id="rectangular" value="rectangular"> Rectangular</label>
+                        <p><label for="scale">Scale:</label>
+                            <label for="scale-log"><input type="radio" name="scale" id="scale-log" value="log" checked="checked"> log n</label>
+                            <label for="scale-sqrt"><input type="radio" name="scale" id="scale-sqrt" value="sqrt"> √n</label>
+                            <label for="scale-linear"><input type="radio" name="scale" id="scale-linear" value="linear"> n</label>
+                        <p><label for="font">Font:</label> <input type="text" id="font" value="Impact">
+                        </div>
+                        <div id="angles" style="display: none;">
+                          
+                        <p><input type="number" id="angle-count" value="5" min="1"> <label for="angle-count">orientations</label>
+                            <label for="angle-from">from</label> <input type="number" id="angle-from" value="-60" min="-90" max="90"> °
+                            <label for="angle-to">to</label> <input type="number" id="angle-to" value="60" min="-90" max="90"> °
+                        </div>
+                        <hr style="clear: both; display: none">
+                        <div style="font-size: 20px; color: white; font-weight: bold; background-color: var(--clearDark); padding: 0px 20px 20px 20px; border-bottom-right-radius: 7px; border-bottom-right-radius: 7px;">Palavras mais Utilizadas para Descrever Objetivos!</div>
+                    </form>
+                </div>
+                </div>
                 <!-- Div pra receber os gráficos -->
                 <div id="ResultadoGrafico"></div>
+                
             </div>
         </div>
     </div>
@@ -45,34 +96,42 @@
     <!-- Chamada função de gerar gráficos -->
     <script>
     gerargraficos([
-                {name: "Estado de nascimento", property: "q4"}, 
-                {name: "Cidade de residência", property: "q5"}, 
-                {name: "Gênero", property: "q6"}, 
-                {name: "Orientação sexual", property: "q6x1"}, 
-                {name: "Dia do nascimento", property: "q7"}, 
-                {name: "Mês do nascimento", property: "q7x1"}, 
-                {name: "Ano do nascimento", property: "q7x2"}, 
-                {name: "Estado Civil", property: "q8"}, 
-                {name: "Portador de alguma deficiência", property: "q9"}, 
-                {name: "Tem filhos", property: "q10"}, 
-                {name: "Com quem mora atualmente", property: "q11"}, 
-                {name: "Quantos moram no seu domicílio", property: "q12"}, 
-                {name: "Situação de sua moradia", property: "q13"}, 
-                {name: "Tempo nesta moradia", property: "q14"}, 
-                {name: "Animal de estimação", property: "q15"}, 
-                {name: "Esportes que pratica", property: "q15x1"}, 
-                {name: "Faixa renda mensal da sua família", property:"q16"}, 
-                {name: "Você trabalha", property: "q19"}, 
-                {name: "Vínculo com o emprego", property: "q19x1"}, 
-                {name: "Área do seu trabalho", property: "q19x2"}, 
-                {name: "Turno do seu emprego", property: "q19x3"}, 
-                {name: "Empresa que esta trabalhando", property: "q19x4"}, 
-                {name: "Plano de saúde", property: "q20"}, 
-                {name: "Pratica atividade voluntária", property: "q32"}, 
-                {name: "Religião", property: "q33"}, 
-                {name: "Fontes de entretenimento", property: "q34"}, 
-                {name: "Meio de transporte utilizado", property: "q41"}, 
-                {name: "Sonhos de vida", property: "q42"}, 
-            ]);</script>
+        {name: "Estado de nascimento", property: "q4"}, 
+        {name: "Cidade de residência", property: "q5"}, 
+        {name: "Gênero", property: "q6"}, 
+        {name: "Orientação sexual", property: "q6x1"}, 
+        {name: "Dia do nascimento", property: "q7"}, 
+        {name: "Mês do nascimento", property: "q7x1"}, 
+        {name: "Ano do nascimento", property: "q7x2"}, 
+        {name: "Estado Civil", property: "q8"}, 
+        {name: "Portador de alguma deficiência", property: "q9"}, 
+        {name: "Tem filhos", property: "q10"}, 
+        {name: "Com quem mora atualmente", property: "q11"}, 
+        {name: "Quantos moram no seu domicílio", property: "q12"}, 
+        {name: "Situação de sua moradia", property: "q13"}, 
+        {name: "Tempo nesta moradia", property: "q14"}, 
+        {name: "Animal de estimação", property: "q15"}, 
+        {name: "Esportes que pratica", property: "q15x1"}, 
+        {name: "Faixa renda mensal da sua família", property:"q16"}, 
+        {name: "Você trabalha", property: "q19"}, 
+        {name: "Vínculo com o emprego", property: "q19x1"}, 
+        {name: "Área do seu trabalho", property: "q19x2"}, 
+        {name: "Turno do seu emprego", property: "q19x3"}, 
+        {name: "Empresa que esta trabalhando", property: "q19x4"}, 
+        {name: "Plano de saúde", property: "q20"}, 
+        {name: "Pratica atividade voluntária", property: "q32"}, 
+        {name: "Religião", property: "q33"}, 
+        {name: "Fontes de entretenimento", property: "q34"}, 
+        {name: "Meio de transporte utilizado", property: "q41"}, 
+        {name: "Sonhos de vida", property: "q42"}, 
+    ]);</script>
+
+    <script>
+        document.querySelector("#text").innerHTML = JSON.stringify(chartData[chartData.length-1].labels.join(" "))
+        console.log(chartData.aboutYou.labels);
+    </script>
+
+    <script src="https://www.jasondavies.com/d3.min.js"></script>
+    <script src="https://www.jasondavies.com/wordcloud/cloud.min.js"></script>
 </body>
 </html>
