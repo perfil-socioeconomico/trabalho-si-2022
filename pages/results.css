@@ -30,7 +30,7 @@ body{
 	border-radius: 10px;
 }
 
-.header{
+.header {
 	width: 100%;
 	background-color: var(--darkestDark);
 	text-align: right;
@@ -38,7 +38,7 @@ body{
 	margin-bottom: 20px;
 }
 
-.voltar_button{
+.voltar_button {
 	background-color:var(--baseColor);
 	color: white;
 	width: 150px;
