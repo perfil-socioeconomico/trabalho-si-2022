@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #111111; 
+    background-color: #111111 !important; 
     overflow: hidden; 
 }
 
@@ -17,7 +17,7 @@ h2 {
     font-weight: 400;
     margin: 0;
 }
-
+/*
 input[type="file"] {
     display: none;
 }
@@ -31,7 +31,7 @@ label {
     margin: 40px auto;
     font-size: 12px;
 }
-
+*/
 
 button {
     background-color: #9246FF;
@@ -47,7 +47,7 @@ button {
     width: 365px;  
 }
 
-.container{
+.containerX{
     background-color: #1F1F1F;
     border-radius: 13px;
     margin: 123px auto;

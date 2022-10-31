@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="dependencies/bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
     <script src="dependencies/xlsx.min.js"></script>
     
@@ -16,11 +19,13 @@
     <script src="index.js"></script>
 </head>
 <body>
-  <div class="container">
+  <div class="containerX">
     <h1 id="start">Envie seu documento</h1>
-    <h2 id="desc">Formato xls</h2>
-    <label for="file_upload">selecionar</label>
-    <input type="file" name="file" id="file_upload" />
+    <h2 id="desc">Formato XLS ou XLSX</h2>
+    <div class="form-group">
+      <input class="form-control my-5" type="file" name="file" id="file_upload" />
+    </div>
+    
     <button onclick="upload()">Enviar</button>     
   </div>
   <div div id="ResultadoGrafico">
