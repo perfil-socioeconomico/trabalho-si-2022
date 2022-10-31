@@ -17,7 +17,7 @@ const upload = () => {
     //Verifica se a extensão é válida
     if (extension == '.XLS' || extension == '.XLSX') {
         excelFileToJSON(files[0]);
-        window.location.href = "results.html"
+        window.location.href = "/pages/fatec.html"
     }else{
         alert("Por favor adicione um arquivo xlsx.");
     }
