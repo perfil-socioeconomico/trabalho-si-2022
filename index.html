@@ -4,47 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabalho</title>
+    <title>Perfil Socioeconômico</title>
 
-    <link rel="stylesheet" href="index.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     
+
+    <link rel="stylesheet" href="dependencies/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="dependencies/xlsx.min.js"></script>
+    
+    <script src="static.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
-    <input type="file" id="file_upload" />
-    <button onclick="upload()">Upload</button>
-
-    <div>
-        <canvas id="myChart"></canvas>
+  <div class="containerX">
+    <h1 id="start">Envie seu documento</h1>
+    <h2 id="desc">Formato XLS ou XLSX</h2>
+    <div class="form-group">
+      <input class="form-control my-5" type="file" name="file" id="file_upload" />
     </div>
-
-    <script>      
-        const data = {
-          labels: [
-            'Gabs :)',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-          ],
-          datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [100, 10, 5, 2, 20, 30, 45],
-          }]
-        };
-      
-        const config = {
-          type: 'line',
-          data: data,
-          options: {}
-        };
-
-        const myChart = new Chart(document.getElementById('myChart'), config);
-      </script>
-</body>
-</html>
+    
+    <button onclick="upload()">Enviar</button>     
+  </div>
+  <div div id="ResultadoGrafico">
+  </div>
+      <script src="gerar_grafico.js"></script>
+</head>

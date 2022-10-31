@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graficos Bens</title>
+    
+    <!-- ChartJs -->
+    <script src="../dependencies/xlsx.min.js"></script>
+    <script src="../dependencies/chart.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="results.css">
+
+    <!-- Dados estáticos -->
+    <script src="../static.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="nave">
+            <h2 style="padding: 10px">PERFIL SOCIOECONÔMICO</h2>
+            <a href="fatec.html">Fatec</a>
+            <a class="active" href="bens.html">Bens</a>
+            <a href="escolaridade.html">Escolaridade</a>
+            <a href="pessoal.html"> Pessoal</a>
+        </div>
+        <div></div>
+        <div class="graficos">
+            <div class="header">
+                <a href="/index.html"><button class="voltar_button">
+                    Enviar Arquivo
+                </button>
+                </a>
+            </div>
+            <div class="grafico_atual">
+                <!-- Div pra receber os gráficos -->
+                <div id="ResultadoGrafico"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Importação do JS -->
+    <script src="../gerar_grafico.js"></script>
+    <!-- Chamada função de gerar gráficos -->
+    <script>
+    gerargraficos([
+                {name: "Quantos televisores tem em casa", property: "q17"}, 
+                {name: "Quantos automoveis tem em casa", property: "q17x1"}, 
+                {name: "Quantas motocicletas tem em casa", property: "q17x2"}, 
+                {name: "Quantas maquinas de lavar tem em casa", property: "q17x3"}, 
+                {name: "Quantas geladeiras tem em casa", property: "q17x4"}, 
+                {name: "Quantos telefones tem em casa", property: "q17x5"}, 
+                {name: "Quantos Smartphone/tablet tem em casa", property: "q17x6"}, 
+                {name: "Quantos desktop tem em casa", property: "q17x7"}, 
+                {name: "Quantos notebooks tem em casa", property: "q17x8"}, 
+                {name: "Tem telefone fixo", property: "q18"}, 
+                {name: "Tem internet", property: "q18x1"}, 
+                {name: "Tem TV por assinatura", property: "q18x2"}, 
+                {name: "Tem empregada mensalista", property: "q18x3"}, 
+                {name: "Uso de notebook e desktop", property: "q23"}, 
+            ]);</script>
+</body>
+</html>
